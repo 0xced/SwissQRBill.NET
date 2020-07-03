@@ -7,6 +7,7 @@
 
 using Codecrete.SwissQRBill.Generator;
 using System.Collections.Generic;
+using System.Linq;
 using Xunit;
 using static Codecrete.SwissQRBill.Generator.ValidationMessage;
 
@@ -58,10 +59,8 @@ namespace Codecrete.SwissQRBill.GeneratorTest
 
             if (bill.AlternativeSchemes != null)
             {
-                foreach (AlternativeScheme scheme in bill.AlternativeSchemes)
-                {
-                    scheme.Name = null;
-                }
+                var alternativeSchemes = bill.AlternativeSchemes.Select(e => new AlternativeScheme(e.Instruction));
+                bill.AlternativeSchemes = alternativeSchemes.ToList();
             }
         }
 

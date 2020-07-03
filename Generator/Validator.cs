@@ -257,13 +257,8 @@ namespace Codecrete.SwissQRBill.Generator
 
                 foreach (AlternativeScheme schemeIn in _billIn.AlternativeSchemes)
                 {
-                    AlternativeScheme schemeOut = new AlternativeScheme
-                    {
-                        Name = schemeIn.Name.Trimmed(),
-                        Instruction = schemeIn.Instruction.Trimmed()
-                    };
-                    if ((schemeOut.Name != null || schemeOut.Instruction != null)
-                        && ValidateLength(schemeOut.Instruction, 100, ValidationConstants.FieldAlternativeSchemes))
+                    AlternativeScheme schemeOut = new AlternativeScheme(name: schemeIn.Name.Trim(), instruction: schemeIn.Instruction.Trim());
+                    if (ValidateLength(schemeOut.Instruction, 100, ValidationConstants.FieldAlternativeSchemes))
                     {
                         schemesOut.Add(schemeOut);
                     }

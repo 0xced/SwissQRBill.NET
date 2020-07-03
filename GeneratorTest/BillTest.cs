@@ -228,8 +228,8 @@ namespace Codecrete.SwissQRBill.GeneratorTest
         {
             return new List<AlternativeScheme>(
              new[] {
-                new AlternativeScheme { Name = "Ultraviolet", Instruction = "UV;UltraPay005;12345" },
-                new AlternativeScheme { Name = "Xing Yong", Instruction = "XY;XYService;54321" }
+                new AlternativeScheme(name: "Ultraviolet", instruction: "UV;UltraPay005;12345"),
+                new AlternativeScheme(name: "Xing Yong", instruction: "XY;XYService;54321")
         });
         }
     }

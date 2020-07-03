@@ -5,6 +5,7 @@
 // https://opensource.org/licenses/MIT
 //
 
+#nullable enable
 
 using System;
 using System.Collections.Generic;
@@ -17,10 +18,29 @@ namespace Codecrete.SwissQRBill.Generator
     public sealed class AlternativeScheme : IEquatable<AlternativeScheme>
     {
         /// <summary>
+        /// Initializes a new instance with the specified payment instruction.
+        /// </summary>
+        /// <param name="instruction">The payment instruction.</param>
+        public AlternativeScheme(string instruction) : this("", instruction)
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance with the specified name and payment instruction.
+        /// </summary>
+        /// <param name="name">The payment scheme name.</param>
+        /// <param name="instruction">The payment instruction.</param>
+        public AlternativeScheme(string name, string instruction)
+        {
+            Name = name ?? throw new ArgumentNullException(nameof(name));
+            Instruction = instruction ?? throw new ArgumentNullException(nameof(instruction));
+        }
+
+        /// <summary>
         /// Gets or sets the payment scheme name.
         /// </summary>
         /// <value>The payment scheme name.</value>
-        public string Name { get; set; }
+        public string Name { get; }
 
         /// <summary>
         /// Gets the payment instruction for a given bill.
@@ -30,7 +50,7 @@ namespace Codecrete.SwissQRBill.Generator
         /// </para>
         /// </summary>
         /// <value>The payment instruction.</value>
-        public string Instruction { get; set; }
+        public string Instruction { get; }
 
         /// <summary>Determines whether the specified object is equal to the current object.</summary>
         /// <param name="obj">The object to compare with the current object.</param>
@@ -43,7 +63,7 @@ namespace Codecrete.SwissQRBill.Generator
         /// <summary>Determines whether the specified alternative scheme is equal to the current alternative scheme.</summary>
         /// <param name="other">The alternative scheme to compare with the current alternative scheme.</param>
         /// <returns><c>true</c> if the specified object is equal to the current object; otherwise, <c>false</c>.</returns>
-        public bool Equals(AlternativeScheme other)
+        public bool Equals(AlternativeScheme? other)
         {
             return other != null &&
                    Name == other.Name &&

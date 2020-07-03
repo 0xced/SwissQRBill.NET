@@ -209,10 +209,7 @@ namespace Codecrete.SwissQRBill.Generator
                 alternativeSchemes = new List<AlternativeScheme>();
                 for (int i = 0; i < numSchemes; i++)
                 {
-                    AlternativeScheme scheme = new AlternativeScheme
-                    {
-                        Instruction = lines[32 + i]
-                    };
+                    AlternativeScheme scheme = new AlternativeScheme(instruction: lines[32 + i]);
                     alternativeSchemes.Add(scheme);
                 }
             }

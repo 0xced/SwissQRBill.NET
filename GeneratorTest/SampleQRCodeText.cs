@@ -155,8 +155,8 @@ namespace Codecrete.SwissQRBill.GeneratorTest
                     "//S1/01/20170309/11/10201409/20/14000000/22/36958/30/CH106017086/40/1020/41/3010",
                 AlternativeSchemes = new List<AlternativeScheme>
                 {
-                    new AlternativeScheme {Name = "Ultraviolet", Instruction = "UV;UltraPay005;12345"},
-                    new AlternativeScheme {Name = "Xing Yong", Instruction = "XY;XYService;54321"}
+                    new AlternativeScheme(name: "Ultraviolet", instruction: "UV;UltraPay005;12345"),
+                    new AlternativeScheme(name: "Xing Yong", instruction: "XY;XYService;54321")
                 },
                 Format = { Language = Language.EN }
             };
