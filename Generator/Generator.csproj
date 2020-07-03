@@ -38,6 +38,10 @@ The Swiss QR bill library:
     <PackageIcon>logo.png</PackageIcon>
   </PropertyGroup>
 
+  <PropertyGroup>
+    <LangVersion>8.0</LangVersion>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="Net.Codecrete.QrCodeGenerator" Version="1.5.0" />
     <PackageReference Include="System.Drawing.Common" Version="4.5.1" />

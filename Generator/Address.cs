@@ -5,6 +5,7 @@
 // https://opensource.org/licenses/MIT
 //
 
+#nullable enable
 
 using System;
 using System.Collections.Generic;
@@ -73,9 +74,9 @@ namespace Codecrete.SwissQRBill.Generator
         /// company name of a legal person.
         /// </summary>
         /// <value>The name.</value>
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
-        private string _addressLine1;
+        private string? _addressLine1;
 
         /// <summary>
         /// Gets or sets the address line 1.
@@ -91,7 +92,7 @@ namespace Codecrete.SwissQRBill.Generator
         /// </para>
         /// </summary>
         /// <value>The address line 1.</value>
-        public string AddressLine1
+        public string? AddressLine1
         {
             get => _addressLine1;
             set
@@ -101,7 +102,7 @@ namespace Codecrete.SwissQRBill.Generator
             }
         }
 
-        private string _addressLine2;
+        private string? _addressLine2;
 
         /// <summary>
         /// Gets or sets the address line 2.
@@ -117,7 +118,7 @@ namespace Codecrete.SwissQRBill.Generator
         /// </para>
         /// </summary>
         /// <value>The address line 2.</value>
-        public string AddressLine2
+        public string? AddressLine2
         {
             get => _addressLine2;
             set
@@ -127,7 +128,7 @@ namespace Codecrete.SwissQRBill.Generator
             }
         }
 
-        private string _street;
+        private string? _street;
 
         /// <summary>
         /// Gets or sets the street.
@@ -143,7 +144,7 @@ namespace Codecrete.SwissQRBill.Generator
         /// </para>
         /// </summary>
         /// <value>The street.</value>
-        public string Street
+        public string? Street
         {
             get => _street;
             set
@@ -153,7 +154,7 @@ namespace Codecrete.SwissQRBill.Generator
             }
         }
 
-        private string _houseNo;
+        private string? _houseNo;
 
         /// <summary>
         /// Gets or sets the house number.
@@ -166,7 +167,7 @@ namespace Codecrete.SwissQRBill.Generator
         /// </para>
         /// </summary>
         /// <value>The house number.</value>
-        public string HouseNo
+        public string? HouseNo
         {
             get => _houseNo;
             set
@@ -176,7 +177,7 @@ namespace Codecrete.SwissQRBill.Generator
             }
         }
 
-        private string _postalCode;
+        private string? _postalCode;
 
         /// <summary>
         /// Gets or sets the postal code.
@@ -189,7 +190,7 @@ namespace Codecrete.SwissQRBill.Generator
         /// </para>
         /// </summary>
         /// <value>The postal code.</value>
-        public string PostalCode
+        public string? PostalCode
         {
             get => _postalCode;
             set
@@ -199,7 +200,7 @@ namespace Codecrete.SwissQRBill.Generator
             }
         }
 
-        private string _town;
+        private string? _town;
 
         /// <summary>
         /// Gets or sets the town or city.
@@ -212,7 +213,7 @@ namespace Codecrete.SwissQRBill.Generator
         /// </para>
         /// </summary>
         /// <value>The town or city.</value>
-        public string Town
+        public string? Town
         {
             get => _town;
             set
@@ -229,7 +230,7 @@ namespace Codecrete.SwissQRBill.Generator
         /// </para>
         /// </summary>
         /// <value>The ISO country code.</value>
-        public string CountryCode { get; set; }
+        public string? CountryCode { get; set; }
 
         /// <summary>
         /// Clears all fields and sets the type to <see cref="AddressType.Undetermined"/>.
@@ -258,7 +259,7 @@ namespace Codecrete.SwissQRBill.Generator
         /// <summary>Determines whether the specified address is equal to the current address.</summary>
         /// <param name="other">The address to compare with the current address.</param>
         /// <returns><c>true</c> if the specified object is equal to the current object; otherwise, <c>false</c>.</returns>
-        public bool Equals(Address other)
+        public bool Equals(Address? other)
         {
             return other != null &&
                    Type == other.Type &&
@@ -279,14 +280,14 @@ namespace Codecrete.SwissQRBill.Generator
             EqualityComparer<string> comparer = EqualityComparer<string>.Default;
             int hashCode = 1913794654;
             hashCode = hashCode * -1521134295 + Type.GetHashCode();
-            hashCode = hashCode * -1521134295 + comparer.GetHashCode(Name);
-            hashCode = hashCode * -1521134295 + comparer.GetHashCode(AddressLine1);
-            hashCode = hashCode * -1521134295 + comparer.GetHashCode(AddressLine2);
-            hashCode = hashCode * -1521134295 + comparer.GetHashCode(Street);
-            hashCode = hashCode * -1521134295 + comparer.GetHashCode(HouseNo);
-            hashCode = hashCode * -1521134295 + comparer.GetHashCode(PostalCode);
-            hashCode = hashCode * -1521134295 + comparer.GetHashCode(Town);
-            hashCode = hashCode * -1521134295 + comparer.GetHashCode(CountryCode);
+            hashCode = hashCode * -1521134295 + comparer.GetHashCode(Name ?? "");
+            hashCode = hashCode * -1521134295 + comparer.GetHashCode(AddressLine1 ?? "");
+            hashCode = hashCode * -1521134295 + comparer.GetHashCode(AddressLine2 ?? "");
+            hashCode = hashCode * -1521134295 + comparer.GetHashCode(Street ?? "");
+            hashCode = hashCode * -1521134295 + comparer.GetHashCode(HouseNo ?? "");
+            hashCode = hashCode * -1521134295 + comparer.GetHashCode(PostalCode ?? "");
+            hashCode = hashCode * -1521134295 + comparer.GetHashCode(Town ?? "");
+            hashCode = hashCode * -1521134295 + comparer.GetHashCode(CountryCode ?? "");
             return hashCode;
         }
     }
