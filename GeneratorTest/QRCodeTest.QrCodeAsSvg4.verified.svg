@@ -3,7 +3,7 @@
 <svg width="46mm" height="46mm" version="1.1" viewBox="0 0 130.394 130.394" xmlns="http://www.w3.org/2000/svg">
 <g font-family="Helvetica,Arial,&quot;Liberation Sans&quot;" transform="translate(0 130.394)">
 <title>Swiss QR Bill</title>
-<g transform="translate(0 0) scale(3.18)">
+<g transform="translate(0 -0) scale(3.18)">
 <path d="M0,-41h7v1h-7zm10,0h3v2h-3zm4,0h2v1h-2zm4,0h1v1h-1zm3,0h2v1h-2zm3,0h1v1h-1z
 m2,0h1v1h-1zm3,0h2v1h-2zm3,0h1v1h-1zm2,0h7v1h-7zm-34,1h1v6h-1zm6,0h1v6h-1z
 m2,0h1v1h-1zm5,0h1v1h-1zm4,0h1v1h-1zm2,0h1v2h-1zm3,0h2v2h-2zm3,0h1v1h-1z
@@ -27,14 +27,14 @@ m2,0h2v1h-2zm4,0h1v5h-1zm2,0h1v3h-1zm6,0h1v6h-1zm6,0h1v1h-1zm3,0h2v1h-2z
 m-36,1h1v1h-1zm11,0h1v1h-1zm6,0h2v1h-2zm5,0h1v1h-1zm2,0h1v3h-1zm2,0h1v2h-1z
 m4,0h1v1h-1zm2,0h1v1h-1zm6,0h1v3h-1zm-35,1h1v3h-1zm2,0h1v1h-1zm3,0h1v1h-1z
 m4,0h1v1h-1zm2,0h1v3h-1zm2,0h1v2h-1zm2,0h1v1h-1zm2,0h1v2h-1zm8,0h2v1h-2z
-m5,0h1v1h-1zm4,0h1v1h-1zm2,0h1v2h-1zm-40,1h1v4h-1zm2,0h1v1h-1zm5,0h1v3h-1z
+m5,0h1v1h-1zm4,0h1v1h-1zm2,0h1v2h-1zm-40,1h1v4h-1zm2,0h1v1h-1zm5,-0h1v3h-1z
 m5,0h1v1h-1zm2,0h1v2h-1zm4,0h1v1h-1zm5,0h1v1h-1zm6,0h1v1h-1zm2,0h1v1h-1z
-m2,0h1v1h-1zm2,0h1v3h-1zm2,0h1v4h-1zm-36,1h1v1h-1zm2,0h1v10h-1zm2,0h2v1h-2z
-m3,0h1v1h-1zm2,0h1v3h-1zm3,0h1v2h-1zm6,0h1v1h-1zm3,0h1v1h-1zm2,0h1v1h-1z
+m2,0h1v1h-1zm2,-0h1v3h-1zm2,0h1v4h-1zm-36,1h1v1h-1zm2,0h1v10h-1zm2,0h2v1h-2z
+m3,0h1v1h-1zm2,0h1v3h-1zm3,-0h1v2h-1zm6,0h1v1h-1zm3,0h1v1h-1zm2,0h1v1h-1z
 m2,0h2v1h-2zm4,0h1v1h-1zm2,0h1v1h-1zm2,0h1v3h-1zm-7,1h1v1h-1zm2,0h1v1h-1z
-m2,0h1v1h-1zm9,0h1v2h-1zm-38,1h1v1h-1zm3,0h2v1h-2zm4,0h1v3h-1zm5,0h3v1h-3z
-m10,0h2v1h-2zm6,0h1v7h-1zm2,0h2v1h-2zm-28,1h1v1h-1zm3,0h2v2h-2zm5,0h1v1h-1z
-m3,0h1v3h-1zm14,0h1v1h-1zm6,0h2v1h-2zm4,0h1v2h-1zm-39,1h2v1h-2zm6,0h1v1h-1z
+m2,0h1v1h-1zm9,0h1v2h-1zm-38,1h1v1h-1zm3,0h2v1h-2zm4,-0h1v3h-1zm5,0h3v1h-3z
+m10,0h2v1h-2zm6,0h1v7h-1zm2,0h2v1h-2zm-28,1h1v1h-1zm3,-0h2v2h-2zm5,0h1v1h-1z
+m3,-0h1v3h-1zm14,0h1v1h-1zm6,0h2v1h-2zm4,-0h1v2h-1zm-39,1h2v1h-2zm6,0h1v1h-1z
 m7,0h1v1h-1zm15,0h1v3h-1zm3,0h2v1h-2zm3,0h1v1h-1zm2,0h1v1h-1zm2,0h1v2h-1z
 m2,0h1v1h-1zm-39,1h1v5h-1zm3,0h1v1h-1zm4,0h1v1h-1zm2,0h2v2h-2zm6,0h1v2h-1z
 m9,0h1v4h-1zm2,0h1v1h-1zm2,0h1v1h-1zm2,0h1v1h-1zm2,0h1v1h-1zm4,0h1v1h-1z
@@ -50,18 +50,18 @@ m2,0h1v3h-1zm3,0h1v1h-1zm3,0h1v4h-1zm6,0h1v2h-1zm2,0h1v1h-1zm2,0h1v2h-1z
 m2,0h1v4h-1zm8,0h1v1h-1zm2,0h4v1h-4zm6,0h1v1h-1zm-38,1h1v2h-1zm5,0h2v1h-2z
 m3,0h1v1h-1zm4,0h1v1h-1zm2,0h1v1h-1zm7,0h1v3h-1zm2,0h1v5h-1zm2,0h1v1h-1z
 m6,0h1v10h-1zm2,0h2v1h-2zm4,0h1v1h-1zm-36,1h1v1h-1zm6,0h1v1h-1zm4,0h1v1h-1z
-m4,0h1v3h-1zm3,0h1v1h-1zm8,0h1v1h-1zm4,0h1v2h-1zm2,0h1v1h-1zm2,0h1v1h-1z
-m2,0h1v1h-1zm2,0h1v1h-1zm-39,1h1v1h-1zm4,0h1v3h-1zm2,0h1v1h-1zm3,0h1v1h-1z
-m8,0h1v2h-1zm4,0h1v2h-1zm4,0h2v1h-2zm4,0h2v1h-2zm5,0h1v3h-1zm6,0h1v2h-1z
-m-39,1h2v1h-2zm6,0h1v1h-1zm5,0h1v2h-1zm2,0h1v3h-1zm5,0h1v1h-1zm6,0h1v1h-1z
-m2,0h1v1h-1zm2,0h1v1h-1zm4,0h1v2h-1zm2,0h1v2h-1zm2,0h1v3h-1zm2,0h1v2h-1z
+m4,0h1v3h-1zm3,0h1v1h-1zm8,0h1v1h-1zm4,-0h1v2h-1zm2,0h1v1h-1zm2,0h1v1h-1z
+m2,0h1v1h-1zm2,0h1v1h-1zm-39,1h1v1h-1zm4,0h1v3h-1zm2,-0h1v1h-1zm3,0h1v1h-1z
+m8,0h1v2h-1zm4,0h1v2h-1zm4,0h2v1h-2zm4,0h2v1h-2zm5,0h1v3h-1zm6,-0h1v2h-1z
+m-39,1h2v1h-2zm6,0h1v1h-1zm5,0h1v2h-1zm2,0h1v3h-1zm5,-0h1v1h-1zm6,0h1v1h-1z
+m2,0h1v1h-1zm2,0h1v1h-1zm4,0h1v2h-1zm2,0h1v2h-1zm2,0h1v3h-1zm2,-0h1v2h-1z
 m-39,1h1v1h-1zm6,0h1v1h-1zm2,0h3v2h-3zm3,0h1v1h-1zm4,0h1v5h-1zm3,0h1v1h-1z
-m2,0h1v1h-1zm2,0h2v1h-2zm4,0h1v1h-1zm2,0h1v3h-1zm2,0h2v1h-2zm6,0h1v5h-1z
+m2,0h1v1h-1zm2,0h2v1h-2zm4,0h1v1h-1zm2,0h1v3h-1zm2,-0h2v1h-2zm6,0h1v5h-1z
 m-23,1h1v2h-1zm4,0h1v1h-1zm2,0h1v1h-1zm4,0h1v1h-1zm2,0h1v1h-1zm2,0h1v1h-1z
 m4,0h1v1h-1zm7,0h1v2h-1zm2,0h1v2h-1zm-40,1h7v1h-7zm9,0h4v1h-4zm9,0h1v4h-1z
 m2,0h2v1h-2zm4,0h1v1h-1zm2,0h1v5h-1zm3,0h1v1h-1zm5,0h1v1h-1zm-34,1h1v6h-1z
-m6,0h1v6h-1zm4,0h1v1h-1zm7,0h1v1h-1zm8,0h1v1h-1zm6,0h1v1h-1zm6,0h1v1h-1z
-m2,0h1v2h-1zm-37,1h3v3h-3zm6,0h1v1h-1zm11,0h2v1h-2zm4,0h2v1h-2zm4,0h2v1h-2z
+m6,0h1v6h-1zm4,-0h1v1h-1zm7,0h1v1h-1zm8,0h1v1h-1zm6,0h1v1h-1zm6,0h1v1h-1z
+m2,0h1v2h-1zm-37,1h3v3h-3zm6,-0h1v1h-1zm11,0h2v1h-2zm4,0h2v1h-2zm4,0h2v1h-2z
 m6,0h1v4h-1zm1,0h2v1h-2zm4,0h1v1h-1zm2,0h1v1h-1zm-31,1h4v1h-4zm7,0h1v1h-1z
 m3,0h1v1h-1zm2,0h1v1h-1zm2,0h1v1h-1zm2,0h1v1h-1zm6,0h1v1h-1zm4,0h1v1h-1z
 m-27,1h1v1h-1zm2,0h1v3h-1zm2,0h2v2h-2zm3,0h1v1h-1zm2,0h1v2h-1zm3,0h1v1h-1z
