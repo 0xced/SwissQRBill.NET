@@ -23,7 +23,12 @@ namespace Codecrete.SwissQRBill.Generator.Canvas
 
         protected void SetupFontMetrics(string fontFamilyList)
         {
-            FontMetrics = new FontMetrics(fontFamilyList);
+            SetupFontMetrics(fontFamilyList, throwFontFamilyNotFoundException: false);
+        }
+
+        protected void SetupFontMetrics(string fontFamilyList, bool throwFontFamilyNotFoundException)
+        {
+            FontMetrics = new FontMetrics(fontFamilyList, throwFontFamilyNotFoundException);
         }
 
         public virtual void PutTextLines(string[] lines, double x, double y, int fontSize, double leading)

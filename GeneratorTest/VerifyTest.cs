@@ -38,7 +38,7 @@ namespace Codecrete.SwissQRBill.GeneratorTest
             using var imgReceived = new MagickImage(received, MagickFormat.Png);
             using var imgVerified = new MagickImage(verified, MagickFormat.Png);
             var diff = imgReceived.Compare(imgVerified, ErrorMetric.PerceptualHash);
-            const double threshold = 0.02;
+            const double threshold = 0.01;
             var compare = diff < threshold;
             if (compare)
             {

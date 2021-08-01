@@ -6,7 +6,11 @@
 //
 
 
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using SixLabors.Fonts;
+using SixLabors.Fonts.Exceptions;
 
 namespace Codecrete.SwissQRBill.Generator.Canvas
 {
@@ -29,10 +33,25 @@ namespace Codecrete.SwissQRBill.Generator.Canvas
         /// </para>
         /// </summary>
         /// <param name="fontFamilyList">The font families, separated by comma (syntax as in CSS).</param>
-        public FontMetrics(string fontFamilyList)
+        public FontMetrics(string fontFamilyList) : this(fontFamilyList, throwFontFamilyNotFoundException: false)
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance for the given list of font families.
+        /// <para>
+        /// If more than one family is specified, the first family is used for metrics.
+        /// </para>
+        /// </summary>
+        /// <param name="fontFamilyList">The font families, separated by comma (syntax as in CSS).</param>
+        /// <param name="throwFontFamilyNotFoundException">
+        /// When <see langword="true"/>, throws an exception if none of the font from <paramref name="fontFamilyList"/> are found in the system fonts.
+        /// This is useful when the font is needed at rendering time, e.g. when rendering to PNG.
+        /// </param>
+        public FontMetrics(string fontFamilyList, bool throwFontFamilyNotFoundException)
         {
             FontFamilyList = fontFamilyList;
-            FirstFontFamily = GetFirstFontFamily(fontFamilyList);
+            (FirstFontFamilyInternal, FirstFontFamily) = GetFirstFontFamily(fontFamilyList, throwFontFamilyNotFoundException);
             string family = FirstFontFamily.ToLowerInvariant();
 
             ushort[] boldCharWidthx20x7F;
@@ -83,6 +102,7 @@ namespace Codecrete.SwissQRBill.Generator.Canvas
         {
             FontFamilyList = null;
             FirstFontFamily = null;
+            FirstFontFamilyInternal = null;
             _charWidthx20x7F = charWidthx20x7F;
             _charWidthxA0xFF = charWidthxA0xFF;
             _charDefaultWidth = charDefaultWidth;
@@ -100,6 +120,12 @@ namespace Codecrete.SwissQRBill.Generator.Canvas
         /// </summary>
         /// <value>The first font family name.</value>
         public string FirstFontFamily { get; }
+
+        /// <summary>
+        /// Gets the first available font family (from the font family list) or <see langword="null"/> if not found in the system fonts.
+        /// </summary>
+        /// <value>The first available font family or <see langword="null"/> if not found in the system fonts.</value>
+        internal FontFamily FirstFontFamilyInternal { get; }
 
         /// <summary>
         /// Gets the distance between the baseline and the top of tallest letter.
@@ -336,26 +362,27 @@ namespace Codecrete.SwissQRBill.Generator.Canvas
             return width;
         }
 
-        private static string GetFirstFontFamily(string fontFamilyList)
+        private static (FontFamily, string) GetFirstFontFamily(string fontFamilyList, bool throwFontFamilyNotFoundException)
         {
-            int index = fontFamilyList.IndexOf(',');
-            if (index < 0)
+            var fontFamilies = fontFamilyList.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries).Select(f => f.Trim(' ', '"')).ToList();
+            foreach (var fontFamily in fontFamilies)
             {
-                return fontFamilyList;
+                if (SystemFonts.Collection.TryFind(fontFamily, out var family))
+                {
+                    return (family, fontFamily);
+                }
             }
 
-            string fontFamily = fontFamilyList.Substring(0, index).Trim();
-            if (fontFamily.StartsWith("\""))
+            if (throwFontFamilyNotFoundException)
             {
-                fontFamily = fontFamily.Substring(1);
+                if (fontFamilies.Count == 1)
+                {
+                    throw new FontFamilyNotFoundException(fontFamilies[0]);
+                }
+                throw new AggregateException(fontFamilies.Select(f => new FontFamilyNotFoundException(f)));
             }
 
-            if (fontFamily.EndsWith(("\"")))
-            {
-                fontFamily = fontFamily.Substring(0, fontFamily.Length - 1);
-            }
-
-            return fontFamily;
+            return (null, fontFamilies[0]);
         }
     }
 }

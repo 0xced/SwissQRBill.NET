@@ -7,8 +7,8 @@
 
 using Codecrete.SwissQRBill.Generator.Canvas;
 using System;
-using System.Drawing.Drawing2D;
 using System.Globalization;
+using System.Numerics;
 using System.Resources;
 using System.Text;
 using static Codecrete.SwissQRBill.Generator.Address;
@@ -503,14 +503,11 @@ namespace Codecrete.SwissQRBill.Generator
             double scale = size / 476.0;
             double xOffset = 0.36 * size;
             double yOffset = -1.05 * size;
-            using (Matrix matrix = new Matrix())
-            {
-                matrix.Translate((float)x, (float)y);
-                matrix.Rotate((float)(angle / Math.PI * 180));
-                matrix.Translate(mirrored ? (float)xOffset : (float)-xOffset, (float)yOffset);
-                matrix.Scale(mirrored ? (float)-scale : (float)scale, (float)scale);
-                _graphics.SetTransformation(matrix.OffsetX, matrix.OffsetY, angle, mirrored ? -scale : scale, scale);
-            }
+            var matrix = Matrix3x2.CreateScale(mirrored ? (float)-scale : (float)scale, (float)scale) *
+                         Matrix3x2.CreateTranslation(mirrored ? (float)xOffset : (float)-xOffset, (float)yOffset) *
+                         Matrix3x2.CreateRotation((float)angle) *
+                         Matrix3x2.CreateTranslation((float)x, (float)y);
+            _graphics.SetTransformation(matrix.M31, matrix.M32, angle, mirrored ? -scale : scale, scale);
 
             _graphics.StartPath();
             _graphics.MoveTo(46.48, 126.784);
