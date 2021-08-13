@@ -15,21 +15,40 @@ namespace Codecrete.SwissQRBill.GeneratorTest
 {
     public class CleanupTest
     {
-        [Fact]
-        public void ClosePngFreesResources()
+        [Theory]
+        // We don't test for _typefaceRegular and _typefaceBold because they ignore the public Dispose (IgnorePublicDispose == true for SKTypeface created with `FromFamilyName`)
+        [InlineData("_surface")]
+        [InlineData("_path")]
+        public void ClosePngFreesResources(string fieldName)
         {
             Type type = typeof(PNGCanvas);
-            FieldInfo bitmapField = type.GetField("_bitmap", BindingFlags.NonPublic | BindingFlags.Instance);
-            Assert.NotNull(bitmapField);
+            FieldInfo surfaceField = type.GetField(fieldName, BindingFlags.NonPublic | BindingFlags.Instance);
+            Assert.NotNull(surfaceField);
 
-            PNGCanvas pngCanvas;
+            object value;
+            PropertyInfo isDisposedProperty;
             using (PNGCanvas canvas = new PNGCanvas(QRBill.QrBillWidth, QRBill.QrBillHeight, 300, "Arial"))
             {
-                pngCanvas = canvas;
-                Assert.NotNull(bitmapField.GetValue(pngCanvas));
+                value = surfaceField.GetValue(canvas);
+                Assert.NotNull(value);
+                isDisposedProperty = GetIsDisposedProperty(value);
+                Assert.NotNull(isDisposedProperty);
+                Assert.False((bool)isDisposedProperty.GetValue(value)!, $"{fieldName}.IsDisposed must be false before the PNGCanvas is disposed");
             }
+            Assert.True((bool)isDisposedProperty.GetValue(value)!, $"{fieldName}.IsDisposed must be true after the PNGCanvas is disposed");
+        }
 
-            Assert.Null(bitmapField.GetValue(pngCanvas));
+        private static PropertyInfo GetIsDisposedProperty(object value)
+        {
+            for (var type = value.GetType(); type != null; type = type.BaseType)
+            {
+                var fieldInfo = type.GetProperty("IsDisposed", BindingFlags.NonPublic | BindingFlags.Instance);
+                if (fieldInfo != null)
+                {
+                    return fieldInfo;
+                }
+            }
+            return null;
         }
     }
 }
