@@ -39,8 +39,8 @@ namespace Codecrete.SwissQRBill.Generator.Canvas
         /// <param name="width">The page width, in mm.</param>
         /// <param name="height">The page height, in mm.</param>
         public PDFCanvas(double width, double height)
+            : base("Helvetica")
         {
-            SetupFontMetrics("Helvetica");
             _document = new Document("Swiss QR Bill");
             Page page = _document.CreatePage((float)(width * MmToPt), (float)(height * MmToPt));
             _contentStream = page.Contents;

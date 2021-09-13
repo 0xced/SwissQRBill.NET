@@ -19,17 +19,20 @@ namespace Codecrete.SwissQRBill.GeneratorTest
         public void ClosePngFreesResources()
         {
             Type type = typeof(PNGCanvas);
-            FieldInfo bitmapField = type.GetField("_bitmap", BindingFlags.NonPublic | BindingFlags.Instance);
-            Assert.NotNull(bitmapField);
+            FieldInfo imageField = type.GetField("_image", BindingFlags.NonPublic | BindingFlags.Instance);
+            Assert.NotNull(imageField);
 
-            PNGCanvas pngCanvas;
+            object image;
+            FieldInfo isDisposedField;
             using (PNGCanvas canvas = new PNGCanvas(QRBill.QrBillWidth, QRBill.QrBillHeight, 300, "Arial"))
             {
-                pngCanvas = canvas;
-                Assert.NotNull(bitmapField.GetValue(pngCanvas));
+                image = imageField.GetValue(canvas);
+                Assert.NotNull(image);
+                isDisposedField = image.GetType().GetField("isDisposed", BindingFlags.NonPublic | BindingFlags.Instance);
+                Assert.NotNull(isDisposedField);
+                Assert.False((bool)isDisposedField.GetValue(image)!);
             }
-
-            Assert.Null(bitmapField.GetValue(pngCanvas));
+            Assert.True((bool)isDisposedField.GetValue(image)!);
         }
     }
 }

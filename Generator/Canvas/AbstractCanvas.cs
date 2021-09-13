@@ -19,9 +19,9 @@ namespace Codecrete.SwissQRBill.Generator.Canvas
     {
         protected static readonly double MmToPt = 72 / 25.4;
 
-        protected FontMetrics FontMetrics;
+        protected readonly FontMetrics FontMetrics;
 
-        protected void SetupFontMetrics(string fontFamilyList)
+        protected AbstractCanvas(string fontFamilyList)
         {
             FontMetrics = new FontMetrics(fontFamilyList);
         }

@@ -17,6 +17,9 @@ jobs:
     runs-on: ${{ matrix.os }}
     name: Build and run tests
     steps:
+      - name: Install the Helvetica font
+        if: matrix.os == 'ubuntu-latest'
+        run: curl https://raw.githubusercontent.com/SixLabors/Fonts/475c2a49ce99b04491ce82718cad36fde56267c5/tests/SixLabors.Fonts.Tests/Fonts/Helvetica.ttc -o /usr/share/fonts/Helvetica.ttc
       - name: Checkout git repository
         uses: actions/checkout@v2
         with:

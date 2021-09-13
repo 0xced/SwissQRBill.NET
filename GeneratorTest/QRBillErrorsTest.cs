@@ -88,6 +88,10 @@ namespace Codecrete.SwissQRBill.GeneratorTest
 
         class FailingCanvas : AbstractCanvas
         {
+            public FailingCanvas() : base("")
+            {
+            }
+
             public override void AddRectangle(double x, double y, double width, double height)
             {
                 throw new NotImplementedException();

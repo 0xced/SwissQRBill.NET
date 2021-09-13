@@ -40,9 +40,8 @@ namespace Codecrete.SwissQRBill.Generator.Canvas
         /// <param name="height">The image height, in mm.</param>
         /// <param name="fontFamilyList">A list font family names, separated by comma (same syntax as for CSS).</param>
         public SVGCanvas(double width, double height, string fontFamilyList)
+            : base(fontFamilyList)
         {
-            SetupFontMetrics(fontFamilyList);
-
             _buffer = new MemoryStream();
             _stream = new StreamWriter(_buffer, Utf8WithoutBom, 1024);
             _stream.Write("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>\n"
