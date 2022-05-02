@@ -57,26 +57,37 @@ namespace Codecrete.SwissQRBill.Generator
             graphics.SetTransformation(offsetX, offsetY, 0, 1, 1);
 
             // Swiss cross
-            graphics.StartPath();
-            graphics.AddRectangle(20, 20, 6, 6);
-            graphics.FillPath(0, false);
             const double barWidth = 7 / 6.0;
             const double barLength = 35 / 9.0;
             
             graphics.StartPath();
-            //       A----B
-            //       |    |
-            //       |    |
-            // K-----L    C-----D
-            // |                |
-            // |                |
-            // J-----I    F-----E
-            //       |    |
-            //       |    |
-            //       H----G
-            
+            // (20, 20)
+            // W-----------------------------X
+            // |                             |
+            // |                             |
+            // |           A----B            |
+            // |           |    |            |
+            // |           |    |            |
+            // |     K-----L    C-----D      |
+            // |     |                |      |
+            // |     |                |      |
+            // |     J-----I    F-----E      |
+            // |           |    |            |
+            // |           |    |            |
+            // |           H----G            |
+            // |                             |
+            // |                             |
+            // Z-----------------------------Y
+            //                               (26, 26)
+
             // Center is (23;23)
-            // Start in A
+            // Start in top left corner (W)
+            graphics.MoveTo(21, 20);
+
+            // Line to L
+            graphics.LineTo(23 - barWidth / 3, 23 - barWidth / 2);
+            
+            // Line in A
             graphics.MoveTo(23 - barWidth / 2, 23 - barLength / 2);
 
             // Line to B
@@ -108,10 +119,27 @@ namespace Codecrete.SwissQRBill.Generator
             
             // Line to K
             graphics.LineTo(23 - barLength / 2, 23 - barWidth / 2);
-            
-            // Line to K
+
+            // Line to L
             graphics.LineTo(23 - barWidth / 2, 23 - barWidth / 2);
-            
+
+            // Line to W
+            graphics.MoveTo(20, 20);
+
+            // Line to Z
+            graphics.MoveTo(26, 20);
+
+            // Line to Y
+            graphics.MoveTo(26, 26);
+
+            // Line to X
+            graphics.MoveTo(20, 26);
+
+            // Line to W
+            graphics.MoveTo(20, 21);
+
+            graphics.CloseSubpath();
+
             graphics.FillPath(0xffffff, false);
         }
 
