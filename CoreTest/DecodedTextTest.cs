@@ -159,10 +159,18 @@ namespace Codecrete.SwissQRBill.CoreTest
             TestHelper.AssertSingleError(err.Result, ValidationConstants.KeyCodingTypeUnsupported, ValidationConstants.FieldCodingType);
         }
 
-        [Fact]
-        public void DecodeInvalidNumber()
+        [Theory]
+        [InlineData("1239d49.75")]
+        [InlineData("123949,75")]
+        [InlineData("+123949.75")]
+        [InlineData("-123949.75")]
+        [InlineData("123949.75+")]
+        [InlineData("123949.75-")]
+        [InlineData(" 123949.75")]
+        [InlineData("123949.75 ")]
+        public void DecodeInvalidNumber(string amount)
         {
-            string invalidText = SampleQRCodeText.CreateQrCodeText1().Replace("3949.75", "1239d49.75");
+            string invalidText = SampleQRCodeText.CreateQrCodeText1().Replace("3949.75", amount);
             QRBillValidationException err = Assert.Throws<QRBillValidationException>(
                         () => QRBill.DecodeQrCodeText(invalidText));
             TestHelper.AssertSingleError(err.Result, ValidationConstants.KeyNumberInvalid, ValidationConstants.FieldAmount);

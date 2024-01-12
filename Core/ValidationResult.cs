@@ -151,6 +151,7 @@ namespace Codecrete.SwissQRBill.Generator
         {
             { ValidationConstants.KeyCurrencyNotChfOrEur, "currency should be \"CHF\" or \"EUR\"" },
             { ValidationConstants.KeyAmountOutsideValidRange, "amount should be between 0.01 and 999 999 999.99" },
+            { ValidationConstants.KeyNumberInvalid, "a valid number is required (nnnnn.nn)" },
             { ValidationConstants.KeyAccountIbanNotFromChOrLi, "account number should start with \"CH\" or \"LI\"" },
             { ValidationConstants.KeyAccountIbanInvalid, "account number is not a valid IBAN (invalid format or checksum)" },
             { ValidationConstants.KeyRefInvalid, "reference is invalid; it is neither a valid QR reference nor a valid ISO 11649 reference" },

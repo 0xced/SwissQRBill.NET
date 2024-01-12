@@ -1,4 +1,4 @@
-﻿//
+//
 // Swiss QR Bill Generator for .NET
 // Copyright (c) 2018 Manuel Bleichenbacher
 // Licensed under MIT License
@@ -199,9 +199,10 @@ namespace Codecrete.SwissQRBill.Generator
                 Creditor = DecodeAddress(lines, 4, false)
             };
 
-            if (lines[18].Length > 0)
+            var amountText = lines[18];
+            if (amountText.Length > 0)
             {
-                if (decimal.TryParse(lines[18], NumberStyles.Number, AmountNumberInfo, out var amount))
+                if (decimal.TryParse(amountText, NumberStyles.AllowThousands | NumberStyles.AllowDecimalPoint, AmountNumberInfo, out var amount))
                 {
                     billData.Amount = amount;
                 }
